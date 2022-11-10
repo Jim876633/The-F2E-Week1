@@ -10,7 +10,7 @@ The F2E 4th 官網 redesign。
 
 ![](./screenshot/video.gif)
 
-使用 React Motion 做出符合 UI 設計的效果。
+使用 Framer Motion 做出符合 UI 設計的效果。
 
 ## 資料夾說明
 
