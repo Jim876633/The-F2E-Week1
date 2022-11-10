@@ -26,12 +26,11 @@ export const Title = styled.h3`
 export const TagList = styled.div`
     display: flex;
     position: relative;
-    width: 90%;
+    margin-inline: 5rem;
     gap: 2rem;
     padding-block: 1rem;
     overflow-x: scroll;
     user-select: none;
-
     &::-webkit-scrollbar {
         background: transparent;
         height: 5px;
