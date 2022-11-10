@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import monument from "./assets/fonts/PPMonumentExtended-Regular.otf";
 import pilot from "./assets/fonts/pilotcommand1_2ital.ttf";
+import { MD980 } from "./constants/style";
 
 const GlobalStyle = createGlobalStyle`
     :root{
@@ -45,8 +46,8 @@ const GlobalStyle = createGlobalStyle`
         /*======================================== */
         /*fomt size */
         /*======================================== */
-        --fz-h1:4.2rem;
-        --fz-h2:4rem;
+        --fz-h1:max(4.2rem,4.2vw);
+        --fz-h2:max(4rem,4vw);
         --fz-h3:3.2rem;
         --fz-h4:2.4rem;
         --fz-h5:2rem;
@@ -80,6 +81,9 @@ const GlobalStyle = createGlobalStyle`
         /*======================================== */
         --br-card: 3.2rem;
         --br-button: 10rem;
+
+
+
     }
     @font-face {
         font-family: monument;
@@ -91,6 +95,9 @@ const GlobalStyle = createGlobalStyle`
     }
     html{
         font-size: 62.5%;
+        ${MD980}{
+            font-size:65%;
+        }
     }
     *{
         margin:0;
@@ -101,9 +108,7 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 400;
         text-transform: uppercase;
     }
-    body{
-
-    }
+  
     button{
         cursor: pointer;
         border:none;

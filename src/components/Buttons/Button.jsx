@@ -5,7 +5,7 @@ export const SignupButton = ({ large }) => {
         return <Button lg={large}>立即報名</Button>;
     }
     return (
-        <Button title="signup" type="button">
+        <Button title="signup" type="button" signup={true}>
             立即報名
         </Button>
     );

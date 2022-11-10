@@ -16,8 +16,8 @@ import {
 } from "./Sponsors.style";
 import { SponsorCard } from "../../../components/Cards/Card";
 
-const sponsorsList = [sponsor1, sponsor2, sponsor3].map((image) => (
-    <SponsorCard image={image} />
+const sponsorsList = [sponsor1, sponsor2, sponsor3].map((image, index) => (
+    <SponsorCard key={index} image={image} />
 ));
 
 const Sponsors = () => {

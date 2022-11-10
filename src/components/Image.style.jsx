@@ -15,6 +15,8 @@ import menuIcon from "../assets/images/menu.svg";
 
 import bannerIcon_1 from "../assets/images/banner-1.png";
 import bannerIcon_2 from "../assets/images/banner-2.png";
+import arrowLeft from "../assets/images/arrowLeft.svg";
+import arrowRight from "../assets/images/arrowRight.svg";
 import star from "../assets/images/star.svg";
 
 /*======================================== */
@@ -24,6 +26,10 @@ import star from "../assets/images/star.svg";
 import question1 from "../assets/images/question-1.svg";
 import question2 from "../assets/images/question-2.svg";
 import question3 from "../assets/images/question-3.svg";
+
+import question1_lg from "../assets/images/question-1-d.svg";
+import question2_lg from "../assets/images/question-2-d.svg";
+import question3_lg from "../assets/images/question-3-d.svg";
 
 /*======================================== */
 /*Topic */
@@ -44,6 +50,7 @@ import light from "../assets/images/light.svg";
 import week1 from "../assets/images/info-1.png";
 import week2 from "../assets/images/info-2.png";
 import week3 from "../assets/images/info-3.png";
+import lock from "../assets/images/lock.png";
 
 /*======================================== */
 /*Activity */
@@ -99,10 +106,15 @@ export {
     menuIcon,
     bannerIcon_1,
     bannerIcon_2,
+    arrowLeft,
+    arrowRight,
     star,
     question1,
     question2,
     question3,
+    question1_lg,
+    question2_lg,
+    question3_lg,
     leftHand,
     rightHand,
     frontEnd,
@@ -113,6 +125,7 @@ export {
     week1,
     week2,
     week3,
+    lock,
     dot1,
     dot2,
     activity1,

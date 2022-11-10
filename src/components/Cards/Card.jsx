@@ -1,4 +1,6 @@
-import reactStringReplace from "react-string-replace";
+import { motion } from "framer-motion";
+
+import { cardRotateVariants, moveupVariants } from "../../animation/animate";
 
 import {
     ImageWrap,
@@ -12,6 +14,7 @@ import {
     activity4,
     review,
     prize,
+    lock,
 } from "../Image.style";
 import {
     CardWrap,
@@ -25,18 +28,35 @@ import {
     CardDetial,
     CardInfo,
     Text,
-    QuestionIndex,
-    Question,
-    Answer,
+    CardFont,
 } from "./Card.style";
+import { BsArrowUpRight } from "react-icons/bs";
+import { formatDetail } from "../../utils/formatData";
+import { Fragment } from "react";
 
 const infoImageList = [week1, week2, week3];
 const prizeImageList = [review, prize];
 
 export const InfoCard = ({ id, title, tag, skill }) => {
     return (
-        <CardWrap>
-            <CardBack>
+        <CardWrap
+            h="35rem"
+            as={motion.div}
+            variants={moveupVariants}
+            transition={{ duration: 0.5, when: "beforeChildren" }}
+            custom={"30%"}
+        >
+            <CardBack as={motion.div} variants={cardRotateVariants} custom={0}>
+                <h3>week {id + 1}</h3>
+                <ImageWrap>
+                    <Image src={lock} />
+                </ImageWrap>
+            </CardBack>
+            <CardFont
+                as={motion.div}
+                variants={cardRotateVariants}
+                custom={-180}
+            >
                 <CardTag># {tag}</CardTag>
                 <CardTitle clr={"var(--clr-p3)"}>{title}</CardTitle>
                 <CardSubTitle>{skill}</CardSubTitle>
@@ -45,29 +65,27 @@ export const InfoCard = ({ id, title, tag, skill }) => {
                 </ImageWrap>
                 <DetailWrap>
                     <span>week {id + 1}</span>
-                    <span>查看關卡細節</span>
+                    <a href="/">
+                        查看關卡細節 <BsArrowUpRight />
+                    </a>
                 </DetailWrap>
-            </CardBack>
+            </CardFont>
         </CardWrap>
     );
 };
 
 export const ActivityCard = ({ id, title, detail }) => {
-    const formatDetail = reactStringReplace(
-        detail,
-        /(\d{2}[/]\d{2}|-)/g,
-        (match, i) => <span key={i}>{match}</span>
-    );
     const activityImageList = [activity1, activity2, activity3, activity4];
+
     return (
-        <CardWrap>
-            <CardContainer border="var(--clr-n1)">
+        <CardWrap h="100%">
+            <CardContainer border="var(--clr-n1)" activity={true}>
                 <ImageWrap width="10rem">
                     <Image src={activityImageList[id]} />
                 </ImageWrap>
                 <TextWrap>
                     <CardTitle>{title}</CardTitle>
-                    <CardDetial>{formatDetail}</CardDetial>
+                    <CardDetial>{formatDetail(detail)}</CardDetial>
                 </TextWrap>
             </CardContainer>
         </CardWrap>
@@ -76,24 +94,23 @@ export const ActivityCard = ({ id, title, detail }) => {
 
 const ReviewDetail = ({ info }) => {
     return info.map(({ heading, detail }) => (
-        <>
+        <Fragment key={heading}>
             <h4>{heading} :</h4>
             <h5>{detail}</h5>
             <br />
-        </>
+        </Fragment>
     ));
 };
 
 const PrizeDetail = ({ info }) => {
     return info.map(({ heading, count, prize, detail }) => (
-        <>
-            <h5>{heading}:</h5>
+        <Fragment key={heading}>
             <h5>
-                {count} <span>{prize}</span>
+                {heading} :<br /> <span>{count}</span> <span>{prize}</span>
             </h5>
             <Text>{detail}</Text>
             <br />
-        </>
+        </Fragment>
     ));
 };
 
@@ -142,7 +159,6 @@ const FQAInfo = ({ id, question, answer }) => {
 };
 
 export const FQACard = ({ data }) => {
-    console.log(data);
     const faqList = data.map((item) => <FQAInfo key={item.id} {...item} />);
     return (
         <CardWrap>

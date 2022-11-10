@@ -13,6 +13,7 @@ export const FooterContainer = styled.footer`
     }
     a {
         color: var(--clr-p1);
+        font-family: "Montserrat", sans-serif;
         text-decoration: underline;
         text-transform: capitalize;
     }

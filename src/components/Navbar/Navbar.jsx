@@ -42,7 +42,7 @@ const Navbar = () => {
                 <MenuButton title="menu" type="button" onClick={toggleHandler}>
                     <Image src={menuIcon} alt="menu" />
                 </MenuButton>
-                <ImageWrap height="1.3rem">
+                <ImageWrap height="max(1.3rem,2vw)">
                     <Image src={logoIcon} alt="logo" />
                 </ImageWrap>
                 <SignupLink href="/">
